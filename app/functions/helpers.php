@@ -1,6 +1,6 @@
 <?php
 
-function dd($dump)
+function vd($dump)
 {
     var_dump($dump);
 

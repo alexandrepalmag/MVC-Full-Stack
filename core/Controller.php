@@ -3,8 +3,7 @@
 namespace core;
 
 use app\classes\Uri;
-use app\exceptions\ControllerNotExistException\ControllerNotExistException;
-
+use app\exceptions\ControllerNotExistException;
 
 class Controller
 {
@@ -73,6 +72,28 @@ class Controller
 
     private function controllerNotHome()
     {
+
+        $controller = $this->getControllerNotHome();
+
+        if (!$this->controllerExists($controller)) {
+
+            throw new ControllerNotExistException("This controller does not exist!");
+        }
+
+        return $this->instantiateController();
+    }
+
+    private function getControllerNotHome()
+    {
+
+        if (substr_count($this->uri, '/') > 1) {
+
+            list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
+
+            return ucfirst($controller) . 'Controller';
+        }
+
+        return ucfirst(ltrim($this->uri, '/')) . 'Controller';
     }
 
     private function isHome()

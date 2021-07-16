@@ -1,6 +1,6 @@
 <?php
 
-namespace app\exceptions\ControllerNotExistException;
+namespace app\exceptions;
 
 class ControllerNotExistException extends \Exception
 {
