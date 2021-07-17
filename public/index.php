@@ -5,12 +5,6 @@ require "../bootstratp.php";
 use core\Controller;
 use core\Method;
 use core\Parameters;
-use app\classes\Uri;
-
-
-
-
-
 
 
 try {
@@ -26,9 +20,6 @@ try {
     $parameters = $parameters->load();
 
     $controller->$method($parameters);
-
-
-
 } catch (\Exception $e) {
 
     vd($e->getMessage());

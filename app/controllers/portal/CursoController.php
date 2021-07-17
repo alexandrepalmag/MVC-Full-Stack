@@ -2,17 +2,23 @@
 
 namespace app\controllers\portal;
 
-use core\Parameters;
+use app\controllers\ContainerController;
 
-class CursoController
+class CursoController extends ContainerController
 {
     public function index()
     {
-        vd('index curso');
     }
 
-    public function show($request)
+    public function show()
     {
-        vd($request->parameter);
+        $this->view([
+           /*  'curso'=> 'PHP_MVC' */
+        ], 'portal.curso');
+    }
+
+    public function insert()
+    {
+        vd('insert');
     }
 }

@@ -2,8 +2,9 @@
 
 namespace app\controllers\portal;
 
+use app\controllers\ContainerController;
 
-class HomeController
+class HomeController extends ContainerController
 {
 
     public function index()

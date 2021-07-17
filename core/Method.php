@@ -33,6 +33,12 @@ class Method
 
             list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
 
+           /*  if (empty($method)) {
+                return 'index';
+            } else {
+                return $method;
+            } */
+
             return $method;
         }
 

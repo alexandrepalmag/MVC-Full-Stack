@@ -13,7 +13,8 @@ class Controller
     private $namespace;
     private $folders = [
         'app\controllers\portal',
-        'app\controllers\admin'
+        'app\controllers\admin',
+        'app\controllers\blog'
     ];
 
 
@@ -22,6 +23,7 @@ class Controller
         $this->uri = Uri::uri();
     }
 
+    //Initial method that is called from in index.php
     public function load()
     {
 
