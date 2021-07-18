@@ -88,14 +88,22 @@ class Controller
     private function getControllerNotHome()
     {
 
-        if (substr_count($this->uri, '/') > 1) {
+        /* if (substr_count($this->uri, '/') > 1) {
 
             list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
 
             return ucfirst($controller) . 'Controller';
         }
 
-        return ucfirst(ltrim($this->uri, '/')) . 'Controller';
+        return ucfirst(ltrim($this->uri, '/')) . 'Controller'; */
+
+        if (substr_count(rtrim($this->uri, '/'), '/') > 1) {
+
+            list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
+
+            return ucfirst($controller) . 'Controller';
+        }
+        return ucfirst(trim($this->uri, '/')) . 'Controller';
     }
 
     private function isHome()

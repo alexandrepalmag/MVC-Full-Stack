@@ -29,15 +29,16 @@ class Method
     private function getMethod()
     {
 
-        if (substr_count($this->uri, '/') > 1) {
+        /* if (substr_count($this->uri, '/') > 1) {
 
             list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
 
-           /*  if (empty($method)) {
-                return 'index';
-            } else {
-                return $method;
-            } */
+            return $method;
+        } */
+
+        if (substr_count(rtrim($this->uri, '/'), '/') > 1) {
+
+            list($controller, $method) = array_values(array_filter(explode('/', $this->uri)));
 
             return $method;
         }

@@ -12,7 +12,13 @@ trait View
 
         $twig = new Twig;
 
-        return $twig->loadTwig();
+        $loadTwig = $twig->loadTwig(); // get Twig.php return in loadTwig() function
+
+        $twig->loadExtensions();
+
+        $twig->loadFunctions();
+
+        return $loadTwig;
     }
 
     public function view($data, $view)
